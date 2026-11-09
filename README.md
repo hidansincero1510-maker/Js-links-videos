@@ -58,3 +58,30 @@ Os vídeos são salvos em:
 - Salvamento no armazenamento do Android.
 
 Desenvolvido por: JS LINKS VIDEOS 💚
+
+---
+
+## 🔄 6. REINSTALAÇÃO APÓS DESINSTALAR O TERMUX
+
+Se você desinstalar o Termux e instalar novamente, siga os passos abaixo para recuperar o JS LINKS VIDEOS.
+
+### Passo 1 — Atualizar o Termux
+
+```bash
+pkg update && pkg upgrade -y
+pkg install python git ffmpeg nodejs termux-api -y
+git clone https://github.com/hidansincero1510-maker/Js-links-videos.git
+cd ~/Js-links-videos
+pip install -r requirements.txt
+pip install colorama
+termux-setup-storage
+python jslinks.py
+```
+
+### IMPORTANTE
+
+- Instale também o aplicativo Termux:API no Android para usar a publicação de vídeos na galeria.
+- Os vídeos que estavam no armazenamento do aparelho precisam de backup separado.
+- O GitHub guarda o código-fonte da ferramenta, não os vídeos baixados.
+
+💚 JS LINKS VIDEOS — Projeto recuperável pelo GitHub!
