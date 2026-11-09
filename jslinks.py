@@ -7,6 +7,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 import yt_dlp
+from editor import menu_editor
 from colorama import init, Fore, Style
 
 init(autoreset=True)
@@ -48,10 +49,11 @@ def banner():
     print(VERDE + "╚══════════════════════════════════════╝")
 
     print(NEON + "\n  [01] ▶  BAIXAR VÍDEO")
-    print(NEON + "  [02] ▣  MEUS DOWNLOADS")
-    print(NEON + "  [03] ↻  ATUALIZAR FERRAMENTA")
-    print(NEON + "  [04] ▤  PASTA DE DOWNLOADS")
-    print(NEON + "  [05] ✖  SAIR")
+    print(NEON + "  [02] ▣  EDITOR DE VÍDEOS")
+    print(NEON + "  [03] ▤  MEUS DOWNLOADS")
+    print(NEON + "  [04] ↻  ATUALIZAR FERRAMENTA")
+    print(NEON + "  [05] ▤  PASTA DE DOWNLOADS")
+    print(NEON + "  [06] ✖  SAIR")
 
     print(VERDE + "\n  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
     print(NEON + "  ● SYSTEM STATUS: " + BRANCO + "ONLINE")
@@ -108,7 +110,8 @@ def baixar_video(url):
     preparar_pasta()
 
     opcoes = {
-        "format": "best[ext=mp4]/best",
+        "format": "bestvideo*+bestaudio/best",
+"js_runtimes": {"node": {}},
         "outtmpl": str(DOWNLOAD_DIR / "%(title).100s.%(ext)s"),
         "noplaylist": True,
         "retries": 5,
@@ -202,19 +205,22 @@ def menu():
             input(AMARELO + "\nPressione ENTER para continuar...")
 
         elif opcao == "2":
+            menu_editor()
+
+        elif opcao == "3":
             listar_downloads()
             input(AMARELO + "\nPressione ENTER para continuar...")
 
-        elif opcao == "3":
+        elif opcao == "4":
             atualizar_ferramenta()
             input(AMARELO + "\nPressione ENTER para continuar...")
 
-        elif opcao == "4":
+        elif opcao == "5":
             print(NEON + "\n[PASTA DE DOWNLOADS]")
             print(BRANCO + str(DOWNLOAD_DIR))
             input(AMARELO + "\nPressione ENTER para continuar...")
 
-        elif opcao == "5":
+        elif opcao == "6":
             print(NEON + "\n[+] JS LINKS VIDEOS ENCERRADO.")
             sys.exit(0)
 
