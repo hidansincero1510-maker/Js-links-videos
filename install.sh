@@ -13,7 +13,7 @@ if [ -z "$PREFIX" ]; then
 fi
 
 pkg update -y
-pkg install python git -y
+pkg install python git ffmpeg nodejs termux-api -y
 
 termux-setup-storage
 
